@@ -1,0 +1,15 @@
+{
+  "name": "learn-skia-canvaskit",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "canvaskit-wasm": "^0.39.1"
+  }
+}
