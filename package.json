@@ -10,6 +10,7 @@
     "typescript": "^5"
   },
   "dependencies": {
+    "@react-spring/core": "^9.7.5",
     "canvaskit-wasm": "^0.39.1"
   }
 }

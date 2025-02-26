@@ -1,5 +1,5 @@
-import CanvasKitInit, { type Canvas } from "canvaskit-wasm";
-import canvaskitwasm from "../node_modules/canvaskit-wasm/bin/canvaskit.wasm";
+import CanvasKitInit, { type Canvas, type Paint } from "canvaskit-wasm/full";
+import canvaskitwasm from "../node_modules/canvaskit-wasm/bin/full/canvaskit.wasm";
 
 const canvas = document.getElementById("root") as HTMLCanvasElement | null;
 if (canvas === null) {
@@ -25,8 +25,13 @@ CanvasKitInit({
   if (surface === null) {
     throw new Error("check if the element with id `root` exists");
   }
-  const paint = new CanvasKit.Paint();
-  paint.setAntiAlias(true);
+  let paint: Paint;
+  const newPaint = () => {
+    paint = new CanvasKit.Paint();
+    paint.setAntiAlias(true);
+    paint.setColor(CanvasKit.WHITE);
+    paint.setStyle(CanvasKit.PaintStyle.Fill);
+  };
 
   function draw(canvas: Canvas) {
     if (surface === null) {
@@ -37,15 +42,10 @@ CanvasKitInit({
 
     canvas.clear(CanvasKit.BLACK);
 
+    newPaint();
     paint.setColor(CanvasKit.BLUE);
-    paint.setStyle(CanvasKit.PaintStyle.Stroke);
-    paint.setStrokeWidth(10);
-    canvas.drawLine(20, 20, 100, 100, paint);
-
-    paint.setColor(CanvasKit.WHITE);
-    paint.setStyle(CanvasKit.PaintStyle.Stroke);
-    paint.setStrokeWidth(10);
-    canvas.drawLine(200, 80, 200, 200, paint);
+    paint.setStyle(CanvasKit.PaintStyle.Fill);
+    canvas.drawCircle(80, 80, 40, paint);
 
     // change co-ordinate space of the whole canvas if needed
     // https://skia.org/docs/user/coordinates/#transforming-local-coordinate-space

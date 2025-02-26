@@ -19,7 +19,7 @@ This project was created using `bun init` in bun v1.2.3. [Bun](https://bun.sh) i
 https://www.youtube.com/watch?v=FjUWI4SUiXQ
 https://github.com/google/skia/blob/main/modules/canvaskit/CHANGELOG.md
 
-I could use https://github.com/motiondivision/motion or popmotionjs or animejs v4
+I could use https://github.com/motiondivision/motion or react-spring core or animejs v4
 or https://github.com/skevy/wobble
 also see https://github.com/aholachek/mobile-first-animation
 
