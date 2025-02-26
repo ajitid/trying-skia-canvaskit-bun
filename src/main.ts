@@ -1,5 +1,6 @@
 import CanvasKitInit, { type Canvas, type Paint } from "canvaskit-wasm/full";
 import canvaskitwasm from "../node_modules/canvaskit-wasm/bin/full/canvaskit.wasm";
+import { SpringValue } from "@react-spring/core";
 
 const canvas = document.getElementById("root") as HTMLCanvasElement | null;
 if (canvas === null) {
@@ -33,6 +34,12 @@ CanvasKitInit({
     paint.setStyle(CanvasKit.PaintStyle.Fill);
   };
 
+  const s = new SpringValue({
+    from: 20,
+    to: 1000,
+    config: { mass: 1, tension: 100, friction: 10 },
+  });
+
   function draw(canvas: Canvas) {
     if (surface === null) {
       throw new Error("surface is null within draw()");
@@ -45,7 +52,7 @@ CanvasKitInit({
     newPaint();
     paint.setColor(CanvasKit.BLUE);
     paint.setStyle(CanvasKit.PaintStyle.Fill);
-    canvas.drawCircle(80, 80, 40, paint);
+    canvas.drawCircle(s.get(), 80, 40, paint);
 
     // change co-ordinate space of the whole canvas if needed
     // https://skia.org/docs/user/coordinates/#transforming-local-coordinate-space
