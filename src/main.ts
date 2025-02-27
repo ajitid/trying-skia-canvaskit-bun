@@ -35,6 +35,10 @@ CanvasKitInit({
   const newPaint = () => {
     paint = new CanvasKit.Paint();
     paint.setAntiAlias(true);
+    // https://claude.ai/chat/6deefd2c-8641-4d77-836f-6e7b2ea0996d zlksnkwork
+    // android sets dither and bitmap filter but we only have dither option in skia
+    // for bitmap filter, search for "SetBlendMode" in visuals.vvvv.md
+    paint.setDither(true);
     paint.setColor(CanvasKit.WHITE);
     paint.setStyle(CanvasKit.PaintStyle.Fill);
   };
