@@ -2,6 +2,7 @@ import CanvasKitInit, { type Canvas, type Paint } from "canvaskit-wasm/full";
 import canvaskitwasm from "../node_modules/canvaskit-wasm/bin/full/canvaskit.wasm";
 import { SpringValue } from "@react-spring/core";
 
+// https://github.com/Shopify/react-native-skia/blob/29109f19aaac57f08c96e881ff3ab55b7d82aa5e/packages/skia/src/views/SkiaBaseWebView.tsx#L11
 const pd = window.devicePixelRatio;
 
 const canvas = document.getElementById("root") as HTMLCanvasElement | null;
